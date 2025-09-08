@@ -1,0 +1,77 @@
+Задача 1
+
+#include <iostream>		
+using namespace std;
+int main() {
+    int a=1,b=2;
+    cout << a+b;
+}
+
+Задача 2
+
+#include <iostream>
+using namespace std;
+int main() {
+	int a, b;
+	cin >> a >> b;
+	cout << a + b << " " << a - b << " " << a * b << " " << a / b;
+}
+
+Задача 3
+
+#include <iostream>
+using namespace std;
+int main() {
+	int a, b;
+	cin >> a >> b;
+	cout << sqrt(a * a + b * b);
+}
+
+Задача 4
+
+#include <iostream>
+using namespace std;
+int main() {
+	float v,t, s=109;
+	cin >> v >> t;
+	int r = v * t / s;
+	cout << v * t - s * r;
+}
+		
+
+Задача 5
+
+#include <iostream>
+using namespace std;
+int main() {
+	int c;
+	cin >> c;
+	int h = c/3600;
+	int mm = c % 3600/60;
+	int ss = c % 60;
+	if (h > 9 and mm > 9 and ss > 9) {
+		cout << h << ":" << mm << ":" << ss;
+	}
+	if (h > 9 and mm > 9 and ss < 10) {
+		cout << h << ":" << mm << ":" << "0" << ss;
+	}
+	if (h > 9 and mm < 10 and ss>9) {
+		cout << h << ":" << "0" << mm << ":" << ss;
+	}
+	if (h > 9 and mm < 10 and ss < 10) {
+		cout << h << ":" << "0" << mm << ":" << "0" << ss;
+	}
+	if (h < 10 and mm>9 and ss > 9) {
+		cout << "0" << h << ":" << mm << ":" << ss;
+	}
+	if (h < 10 and mm>9 and ss < 10) {
+		cout << "0" << h << ":" << mm << ":" << "0" << ss;
+	}
+	if (h < 10 and mm < 10 and ss>9) {
+		cout << "0" << h << ":" << "0" << mm << ":" << ss;
+	}
+	if (h < 10 and mm < 10 and ss < 10) {
+		cout << "0" << h << ":" << "0" << mm << ":" << "0" << ss;
+	}
+}
+
