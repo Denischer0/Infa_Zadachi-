@@ -3,17 +3,16 @@
 #include <iostream>
 using namespace std;
 int main() {
-	float x, y,z=0;
+	float x, y;
 	cout << "Write the first day`s money" << endl;
 	cin >> x;
 	cout << "Write yhe amount of money we need to let Ivan Ivanovich visit a prison" << endl;
 	cin >> y;
-	int k = 0;
-	while (z < y) {
+	int k = 1;
+	while (x < y) {
 		k++;
-		z = z + x;
 		x = x * 1.1;
-		
+
 	}
 	cout << "Ivan Ivanovich will be punished at the day " << k;
 }
