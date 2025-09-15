@@ -1,0 +1,32 @@
+Задача 1
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main() {
+	int A, B;
+	string x;
+	cout << "Write number A than write a sigh and than write number B" << endl;
+	cin >> A >> x >> B;
+	if (abs(A) > 21478483483647 and abs(B) > 21478483483647) {
+		cout << "Your number is too big. Next time try the smaller one";
+	}
+	else {
+		if (x == "+") {
+			cout << A + B;
+		}
+		if (x == "-") {
+			cout << A - B;
+		}
+		if (x == "*") {
+			cout << A * B;
+		}
+		if (x == "/") {
+			cout << A / B;
+		}
+	
+	}
+}
+
+Задача 2
+
