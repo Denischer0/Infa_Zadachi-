@@ -30,3 +30,28 @@ int main() {
 
 Задача 2
 
+#include <iostream> 
+using namespace std;
+int main() {
+	int A, B;
+	cout << "Write the number A" << endl;
+	cin >> A;
+	cout << "Write the number B" << endl;
+	cin >> B;
+	if (A > B) {
+		while(A > B) {
+			if (A % 2 == 0) {
+				A = A / 2;
+				cout << "/2" << endl;
+			}
+			else {
+				A = A - 1;
+				cout << "-1" << endl;
+			}
+		}
+	}
+	else {
+		cout << "The number A should be bigger than the number B";
+	}
+
+}   
