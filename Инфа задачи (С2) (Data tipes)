@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 int main() {
-	int x, y,z=0;
+	float x, y,z=0;
 	cout << "Write the first day`s money" << endl;
 	cin >> x;
 	cout << "Write yhe amount of money we need to let Ivan Ivanovich visit a prison" << endl;
