@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <iomanip>
+using namespace std;
+struct Drug {
+	string Name;
+	string sername;
+	int kr1;
+	int kr2;
+	int kr3;
+};
+
+int main(){
+	string Name;
+	string sername;
+	int kr1;
+	int kr2;
+	int kr3;
+	int n, f=0;
+	double krit1 = 0.0;
+	double krit2 = 0.0;
+	double krit3 = 0.0;
+
+	cout << "Vvedite chislo druzey" << endl;
+	cin >> n;
+	cout << "Vvedite informaciyu po kazhdomu drugu" << endl;
+	while (f != n) {
+		cin >> Name >> sername >> kr1 >> kr2 >> kr3;
+		Drug drug = {Name, sername, kr1,kr2,kr3  };
+		krit1 = krit1 + drug.kr1;
+		krit2 = krit2 + drug.kr2;
+		krit3 = krit3 + drug.kr3;
+		f++;
+	}
+	cout << fixed;     //эта и следущая строчки задают кол-во чисел после запятой на вывод, не убирая нули
+	cout.precision(1);
+	cout << krit1/n << " " << krit2 / n << " " << krit3 / n << endl;
+}
