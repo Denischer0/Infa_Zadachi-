@@ -1,0 +1,105 @@
+Задача 1
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ifstream file("input.txt");
+    ofstream file2("output.txt");
+    if (!file.is_open()) {
+        cerr << "Unable to open file!" << endl;
+        return 1;
+    }
+    char letter0 = 'u', letter1 = 's', letter2 = 'e', letter3 = 'r', letter4 = 'a', letter5 = 'g', letter6 = 'm', letter7 = 'n', letter8 = 't';
+    char letter;
+    while (file >> letter) {
+        if (letter == letter0 or letter == letter1 or letter == letter2 or letter == letter3 or letter == letter4 or letter == letter5 or letter == letter6 or letter == letter7 or letter == letter8) {
+        }
+        else {
+            file2 << letter;
+        }
+    }      
+}
+
+Задача 2
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ifstream fileX("input1.txt");
+    ifstream fileY("input2.txt");
+    ofstream file3("output.txt");
+    if (!fileX.is_open() or !fileY.is_open() or !file3.is_open()) {
+        cerr << "Unable to open file!" << endl;
+        return 1;
+    }
+    string word_to_find="", word="";
+    char letter;
+    
+    while (fileY >> letter) {
+        word_to_find = word_to_find + letter;
+    }
+    while (fileX >> letter) {
+        word = word + letter;
+    }
+    size_t pos = word.find(word_to_find);
+    if (pos != string::npos) {
+        file3 << "Данила подворовывает шутки";
+    }
+    else {
+        file3 << "Данила не ворует шутки";
+    }
+
+Задача 3
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+string bin(int Number) {
+    char tmp;  
+    string binNumber;  
+    while (Number) {
+        tmp = '0' + Number % 2;   
+        binNumber = tmp + binNumber;  
+        Number /= 2;
+
+    }
+    return binNumber;
+}
+
+int main() {
+    ifstream file1("input.txt");
+    ofstream file2("output.txt");
+    if (!file1.is_open() or !file2.is_open()) {
+        cerr << "Unable to open file!" << endl;
+        return 1;
+    }
+    string ch = "",bch;
+    char simvol;
+    while (file1 >> simvol) {
+        if (simvol == '0' or simvol == '1' or simvol == '2' or simvol == '3' or simvol == '4' or simvol == '5' or simvol == '6' or simvol == '7' or simvol == '8' or simvol == '9') {
+            ch = ch + simvol;
+        }
+        else {
+            if (ch != "") {
+                int x = stoi(ch);
+                bch = bin(x);               
+                file2 << bch;
+                ch = "";
+            }
+            file2 << simvol;                      
+        }      
+    }
+    int xx = stoi(ch);
+    bch = bin(xx);
+    file2 << bch;      
+}
+  
+    
+}
