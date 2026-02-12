@@ -1,0 +1,65 @@
+Задача 1
+code = {'A':'00','B':'01','C':'10','D':'11','E':'100','F':'101'}
+message  = "BACED"
+encoded = ''.join(code[ch] for ch in message)
+print(encoded)
+
+Задача 2
+code = {'A':'0','B':'01','C':'10','D':'11','E':'100','F':'101'}
+message  = "BACED"
+encoded = ''.join(code[ch] for ch in message)
+l=len(encoded)/len(message)
+print(encoded, l)
+
+Задача 3
+message  = "BACED"
+encoded = message.encode("utf-8")
+l=len(encoded) #объём в байтах
+l2=len(encoded)*8 #объём в битах
+print(l,l2)
+
+
+Задача 4
+code = {'A':'00','B':'01','C':'10','D':'11'}
+code2 = {'00':'A','01':'B','10':'C','11':'D'}
+message  = "BACD"
+encoded = ''.join(code[ch] for ch in message)
+print(encoded)
+s = encoded.replace('00','A')
+s=s.replace('11','D')
+s=s.replace('10','C')
+s=s.replace('01','B')
+print(s)
+
+Задача 5
+code = {'A':'00','B':'01','C':'10','D':'11'}
+message  = "BACD"
+encoded = message.encode("utf-8")
+binary = [format(b, '08b') for b in encoded]
+encoded2 = ''.join(code[ch] for ch in message)
+print(binary, encoded2)
+
+Задача 6
+code = {'A':'00','B':'01','C':'10','D':'11'}
+message  = "BACD"
+message2= "BBBABBACDDD"
+encoded = ''.join(code[ch] for ch in message)
+encoded2 = ''.join(code[ch] for ch in message2)
+print(encoded, encoded2)
+
+Задача 7
+•	code = {'A':'00','B':'01','C':'10','D':'11'}
+message  = "BACD"
+message2 = 2631
+encoded = ''.join(code[ch] for ch in message)
+encoded2 = bin(message2) [2:]
+print(encoded, encoded2)
+
+
+Задача 8
+code = {'A':'00','B':'01','C':'10','D':'11'}
+message  = "A"
+encoded = message.encode("utf-8")
+binary = [format(b, '08b') for b in encoded]
+encoded2 = ''.join(code[ch] for ch in message)
+print(binary, encoded2)
