@@ -1,0 +1,183 @@
+Задача 1
+
+message ="101011"
+n=message.count("1")
+if n%2==0:
+    p=0
+else:
+    p=1
+codeword = message + str(p)
+print(codeword)
+
+Задача 2
+
+print("Введите первое сообщение")
+message1 =str(input())
+print("Введите второе сообщение")
+message2 =str(input())
+n1=message1.count("1")
+n2=message2.count("1")
+if n1%2==0:
+    p1=0
+else:
+    p1=1
+if n2%2==0:
+    p2=0
+else:
+    p2=1
+codeword1 = message1 + str(p1)
+codeword2 = message2 + str(p2)
+received1 = list(codeword1)
+received2=list(codeword2)
+if received1[1]=="0":
+    received1[1]="1"
+else:
+    received1[1]="0"
+    
+if received1[2]=="0":
+    received1[2]="1"
+else:
+    received1[2]="0"    
+if received2[1]=="0":
+    received2[1]="1"
+else:
+    received2[1]="0"    
+if received1[2]=="0":
+    received1[2]="1"
+else:
+    received1[2]="0"   
+check1=received1.count("1")%2
+check2=received2.count("1")%2
+print("Информация о сообщении 1:")
+print("Сообщение: ",message1)
+print("Кодовое слово: ",codeword1)
+print("Принято: ",received1)
+print("Контроль чётности: ",check1)
+print("Ошибка обнаружена" if check1 == 1 else "Ошибка не обнаружена")
+print("Информация о сообщении 2:")
+print("Сообщение: ",message2)
+print("Кодовое слово: ",codeword2)
+print("Принято: ",received2)
+print("Контроль чётности: ",check2)
+print("Ошибка обнаружена" if check2 == 1 else "Ошибка не обнаружена")
+
+Задача 3
+
+print("Введите слово 1:")
+a = str(input())
+print("Введите слово 2")
+b = str(input())
+d = sum(x != y for x, y in zip(a, b))
+print("Слово 1:", a)
+print("Слово 2:", b)
+print("Расстояние Хэмминга:", d)
+
+Задача 4
+
+print("Введите сообщение")
+message = str(input())
+encoded = ''.join("111" if b == "1" else "000" for b in message)
+v=len(encoded)*4
+print(encoded,v)	
+
+Задача 5
+
+def majority(triple: str) -> str:
+    return "1" if triple.count("1") >= 2 else "0"
+print("Введите сообщение")
+message = str(input())
+encoded = ''.join("111" if b == "1" else "000" for b in message)
+broken = list(encoded)
+broken[1] = "0" if broken[1] == "1" else "1"
+broken = "".join(broken)
+decoded = ''.join(majority(broken[i:i+3]) for i in range(0, len(broken), 3))
+print("Исходное сообщение:", message)
+print("Троированный код:", encoded)
+print("Принято с ошибкой:", broken)
+print("Декодировано:", decoded)
+
+Задача 6
+
+def hamming74_encode(data_bits: str) -> str:
+    d1, d2, d3, d4 = (int(x) for x in data_bits)
+    p1 = d1 ^ d2 ^ d4
+    p2 = d1 ^ d3 ^ d4
+    p4 = d2 ^ d3 ^ d4
+    code = [p1, p2, d1, p4, d2, d3, d4]
+    return ''.join(str(x) for x in code)
+message="1011"
+encoded=hamming74_encode(message)
+print(encoded)
+
+Задача 7
+
+def hamming74_encode(data_bits: str) -> str:
+    d1, d2, d3, d4 = (int(x) for x in data_bits)
+    p1 = d1 ^ d2 ^ d4
+    p2 = d1 ^ d3 ^ d4
+    p4 = d2 ^ d3 ^ d4
+    code = [p1, p2, d1, p4, d2, d3, d4]
+    return ''.join(str(x) for x in code)
+
+def hamming74_syndrome(code_bits: str) -> int:
+    b = [int(x) for x in code_bits]
+    s1 = b[0] ^ b[2] ^ b[4] ^ b[6]
+    s2 = b[1] ^ b[2] ^ b[5] ^ b[6]
+    s4 = b[3] ^ b[4] ^ b[5] ^ b[6]
+    return s1 * 1 + s2 * 2 + s4 * 4
+
+
+
+data = "1010"
+code = hamming74_encode(data)
+
+broken = list(code)
+broken[4] = "0" if broken[4] == "1" else "1"   
+broken = ''.join(broken)
+
+syn = hamming74_syndrome(broken)
+print(code)
+print(broken)
+print(syn)
+
+Задача 8 
+
+def hamming74_encode(data_bits: str) -> str:
+    d1, d2, d3, d4 = (int(x) for x in data_bits)
+    p1 = d1 ^ d2 ^ d4
+    p2 = d1 ^ d3 ^ d4
+    p4 = d2 ^ d3 ^ d4
+    code = [p1, p2, d1, p4, d2, d3, d4]
+    return ''.join(str(x) for x in code)
+
+
+def hamming74_syndrome(code_bits: str) -> int:
+    b = [int(x) for x in code_bits]
+    s1 = b[0] ^ b[2] ^ b[4] ^ b[6]
+    s2 = b[1] ^ b[2] ^ b[5] ^ b[6]
+    s4 = b[3] ^ b[4] ^ b[5] ^ b[6]
+    return s1 * 1 + s2 * 2 + s4 * 4
+
+def hamming74_correct(code_bits: str) -> str:
+    b = [int(x) for x in code_bits]
+    pos = hamming74_syndrome(code_bits)
+    if pos != 0:
+        b[pos - 1] ^= 1
+    return ''.join(str(x) for x in b)
+
+data = "1011"
+code = hamming74_encode(data)
+
+broken = list(code)
+broken[4] = "0" if broken[4] == "1" else "1"   
+broken = ''.join(broken)
+
+syn = hamming74_syndrome(broken)
+fixed = hamming74_correct(broken)
+
+
+print("Данные:", data)
+print("Код Хэмминга:", code)
+print("Принято с ошибкой:", broken)
+print("Синдром:", syn)
+print("Исправлено:", fixed)
