@@ -1,0 +1,115 @@
+Задача 1
+
+def perevod(num,n):
+    l=len(str(num))-1
+    ch=0
+    nu=str(num)
+    i=0
+    while l>=0:
+        ch+=int(nu[i])*n**l
+        l-=1
+        i+=1
+    return ch
+print("Введите систему счисления от 2 до 10")
+n=int(input())
+print("Введите число")
+num=int(input())
+ch=perevod(num,n)
+print(ch)
+
+Задача 2
+
+def perevod(num,n):
+    ch=[]
+    while num>0:
+        ch.append(num%n)
+        num=num//n
+    ch.reverse()
+    a=""
+    for i in range(len(ch)):
+        a+=str(ch[i])
+    return a
+    
+    
+print("Введите число в десятичной системе счисления")
+num=int(input())
+print("Введите систему счисления в которую вы хотите его перевести от 2 до 10")
+n=int(input())
+ch=perevod(num,n)
+print(ch)
+
+
+Задача 3
+
+def perevod(num):
+    i=0
+    ch=""
+    while 2**(i+1) < num:
+        i=i+1
+    ch=ch+"1"
+    num=num-2**i
+    i=i-1
+    while num>0:      
+        while 2**i>num:
+            ch=ch+"0"
+            i=i-1
+        ch=ch+"1"
+        num=num-2**i
+        i=i-1
+    return ch
+    
+    
+print("Введите число в десятичной системе счисления")
+num=int(input())
+ch=perevod(num)
+print(ch)
+
+Задача 4
+
+def perevod_v_dec(num,n):
+    l=len(str(num))-1
+    ch=0
+    nu=str(num)
+    i=0
+    while l>=0:
+        ch+=int(nu[i])*n**l
+        l-=1
+        i+=1
+    return ch
+def perevod_iz_dec(num,n):
+    ch=[]
+    while num>0:
+        ch.append(num%n)
+        num=num//n
+    ch.reverse()
+    a=""
+    for i in range(len(ch)):
+        a+=str(ch[i])
+    return a
+    
+    
+print("Введите число в десятичной системе счисления")
+num=int(input())
+print("Введите систему счисления в которую вы хотите его перевести от 2 до 10")
+n=int(input())
+if n>=2 and n<=10:
+    ch=perevod_iz_dec(num,n)
+    print(ch)
+else:
+    print("Введена некоректная система счисления")
+print("Введите систему счисления из которой вы хотите перевести число от 2 до 10")
+n=int(input())
+if n>=2 and n<=10:
+    print("Введите число")
+    num=int(input())
+    su=0
+    for i in range(0,n+1):
+        su+=str(num).count(str(i))
+    if su!=len(str(num)):
+        print("Введено некоректное число")
+    else:
+        ch=perevod_v_dec(num,n)
+        print(ch)
+    
+else:
+    print("Введена некоректная система счисления")
