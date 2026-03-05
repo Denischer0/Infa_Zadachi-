@@ -1,1 +1,55 @@
+Задача 1
+
+binx = '110101101'
+print(oct(int(binx, 2))[2:])
+
+Задача 2
+
+binx = input("Введите двоичное число: ").strip()
+alph = "0123456789ABCDEF"
+
+while len(binx) % 4 != 0:
+    binx = "0" + binx
+
+
+hexn = ""
+for i in range(0, len(binx), 4):
+    group = binx[i:i + 4]
+    hexn += alph[int(group, 2)]
+
+
+print("Шестнадцатеричное представление:", hexn)
+
+Задача 3
+
+inputx = int(input("Введите десятичное число: "))
+
+octx = oct(inputx)[2:]
+print(f'Представление в восмеричном: {octx}')
+
+print("Перевод обратно в десятичную: ", int(octx, 8))
+
+Задача 4
+
+hexx = '3A7'
+print(f"Представление 3A7(16) в двоичной: {bin(int(hexx, 16))[2:]}")
+
+Задача 5
+
+hexx = '3A7'
+print(f"Представление 3A7(16) в двоичной: {bin(int(hexx, 16))[2:]}")
+
+Задача 7
+
+nozeros = "101"
+withzeros = "0000101"
+val1 = int(nozeros, 2)
+val2 = int(withzeros, 2)
+print(f"Строка '{nozeros}': значение = {val1}")
+print(f"Строка '{withzeros}': значение = {val2}")
+if val1 == val2:
+    print("Ведущие нули не имеют значения при переводе в другие системы счисления")
+else:
+    print("Ведущие нули влияют на результат")
+
 
