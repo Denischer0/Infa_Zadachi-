@@ -1,1 +1,183 @@
+Задачи 1
+
+a = "101101"
+b = "011011"
+
+a = a[::-1]
+b = b[::-1]
+
+carry = 0
+result = []
+
+for i in range(max(len(a), len(b))):
+    da = int(a[i]) if i < len(a) else 0
+    db = int(b[i]) if i < len(b) else 0
+    s = da + db + carry
+    result.append(str(s % 2))
+    carry = s // 2
+    if carry:
+        print(f"Возник перенос в {i}")
+
+if carry:
+    result.append("1")
+
+print("".join(reversed(result)))
+
+Задача 2
+
+a = "243"
+b = "134"
+base = 6
+a = a[::-1]
+b = b[::-1]
+carry = 0
+result = []
+for i in range(max(len(a), len(b))):
+    da = int(a[i]) if i < len(a) else 0
+    db = int(b[i]) if i < len(b) else 0
+    s = da + db + carry
+    result.append(str(s % base))
+    carry = s // base
+    if carry:
+        result.append(str(carry))
+print("".join(reversed(result)))
+
+Задача 3
+
+a = "725"
+b = "346"
+base = 8
+a = a[::-1]
+b = b[::-1]
+borrow = 0
+result = []
+for i in range(len(a)):
+    da = int(a[i]) - borrow
+    db = int(b[i]) if i < len(b) else 0
+    if da < db:
+        da += base
+        borrow = 1
+    else:
+        borrow = 0
+    result.append(str(da - db))
+print("".join(reversed(result)))
+
+Задача 4
+
+a = input("Input a: ")
+b = input("Input b: ")
+base = int(input("Input base: "))
+a = a[::-1]
+b = b[::-1]
+carry = 0
+result = []
+for i in range(max(len(a), len(b))):
+    da = int(a[i]) if i < len(a) else 0
+    db = int(b[i]) if i < len(b) else 0
+    s = da + db + carry
+    result.append(str(s % base))
+    carry = s // base
+    if carry:
+        result.append(str(carry))
+print("".join(reversed(result)))
+
+Задача 5
+
+a = input("Введите a: ")
+b = input("Введите b: ")
+base = int(input("Введите основание"))
+a = a[::-1]
+b = b[::-1]
+borrow = 0
+result = []
+for i in range(len(a)):
+    da = int(a[i]) - borrow
+    db = int(b[i]) if i < len(b) else 0
+    if da < db:
+        da += base
+        borrow = 1
+    else:
+        borrow = 0
+    result.append(str(da - db))
+print("".join(reversed(result)))
+
+Задача 6
+
+def summ(a:str, b:str, base:int) -> str:
+    a = a[::-1]
+    b = b[::-1]
+    carry = 0
+    result = []
+    for i in range(max(len(a), len(b))):
+        da = int(a[i]) if i < len(a) else 0
+        db = int(b[i]) if i < len(b) else 0
+        s = da + db + carry
+        result.append(str(s % base))
+        carry = s // base
+    if carry:
+        result.append(str(carry))
+    return ''.join(reversed(result))
+
+def deff(a:str, b:str, base:int) -> str:
+    a = a[::-1]
+    b = b[::-1]
+    borrow = 0
+    result = []
+    for i in range(len(a)):
+        da = int(a[i]) - borrow
+        db = int(b[i]) if i < len(b) else 0
+        if da < db:
+            da += base
+            borrow = 1
+        else:
+            borrow = 0
+        result.append(str(da - db))
+    return "".join(reversed(result))
+
+a, b, base = input(), input(), int(input())
+
+sum_res = summ(a, b, base)
+print(f"Сумма: {sum_res}")
+
+diff_res = deff(sum_res, b, base)
+print(f"Разность ({sum_res} - {b}): {diff_res}")
+if diff_res.lstrip("0") == a.lstrip("0"):
+    print("Success!")
+else:
+    print("Error!")
+
+Задача 7
+
+def summ(a:str, b:str, base:int) -> str:
+    a = a[::-1]
+    b = b[::-1]
+    carry = 0
+    result = []
+    for i in range(max(len(a), len(b))):
+        da = int(a[i]) if i < len(a) else 0
+        db = int(b[i]) if i < len(b) else 0
+        s = da + db + carry
+        result.append(str(s % base))
+        carry = s // base
+        if carry:
+            print(f"Возник перенос в {i}")
+    if carry:
+        result.append(str(carry))
+    return ''.join(reversed(result))
+
+def to_base(num:int, base:int) -> str:
+    res = ''
+    while num != 0:
+        res += str(num % base)
+        num //= base
+    return res
+
+num1 = 41
+num2 = 14
+
+for base in [2, 8, 10]:
+    s1 = to_base(num1, base)
+    s2 = to_base(num2, base)
+    print(summ(s1, s2, base))
+
 
