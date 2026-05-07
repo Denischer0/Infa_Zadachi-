@@ -1,0 +1,70 @@
+Задача 1
+№1
+
+import statistics as st
+
+data = [18, 21, 19, 25, 24, 20, 22, 23, 80]
+
+mean_value = st.mean(data)
+median_value = st.median(data)
+min_value = min(data)
+max_value = max(data)
+data_range = max_value - min_value
+std_value = st.stdev(data)
+
+print("Среднее:", mean_value)
+print("Медиана:", median_value)
+print("Минимум:", min_value)
+print("Максимум:", max_value)
+print("Размах:", data_range)
+print("Стандартное отклонение:", std_value)
+
+Задача 2
+
+import statistics as st
+import math
+
+x = [2, 4, 6, 8, 10, 12]
+y = [5, 9, 13, 17, 21, 25]
+
+mean_x = st.mean(x)
+mean_y = st.mean(y)
+
+numerator = sum((x - mean_x) * (y - mean_y) for x, y in zip(x, y))
+denominator_x = math.sqrt(sum((x - mean_x) ** 2 for x in x))
+denominator_y = math.sqrt(sum((y - mean_y) ** 2 for y in y))
+
+r = numerator / (denominator_x * denominator_y)
+
+print("Коэффициент корреляции:", r)
+
+Задача 3
+
+import numpy as np
+sales = [
+    ("Книги", 1200),
+    ("Канцелярия", 500),
+    ("Книги", 800),
+    ("Техника", 4500),
+    ("Канцелярия", 700),
+    ("Техника", 5200)
+]
+print("Коэффициент a:", a)
+print("Свободный член b:", b)
+print("Прогноз для 8 часов подготовки:", y_pred) 
+
+import numpy as np
+sales = [
+    ("Книги", 1200),
+    ("Канцелярия", 500),
+    ("Книги", 800),
+    ("Техника", 4500),
+    ("Канцелярия", 700),
+    ("Техника", 5200)
+]
+print("Коэффициент a:", a)
+print("Свободный член b:", b)
+print("Прогноз для 8 часов подготовки:", y_pred) 
+
+
+
