@@ -1,0 +1,100 @@
+Задача 2
+
+import numpy as np
+# Обычный Python
+
+arr=[1,2,3,4,5]
+result=[]
+for i in range(len(arr)):
+    result.append(arr[i]+arr[i])
+print(result)
+
+# Библиотека Numpy
+arr = np.array([1, 2, 3, 4, 5])
+result = arr + arr
+print(result)
+
+Задача 3
+
+import pandas as pd
+
+# Обычный Python
+data = [5, 12, 7, 18, 3, 25]
+result = [x for x in data if x > 10]
+print(result)
+
+# Библиотека Pandas
+
+df = pd.DataFrame({"value": data})
+print(df[df["value"] > 10])
+
+Задача 4
+
+import pandas as pd
+
+data = {'Категория': ['Техника', 'Одежда', 'Техника', 'Одежда'],
+        'Продажи': [1000, 500, 800, 500]}
+df = pd.DataFrame(data)
+grouped_data = df.groupby('Категория')
+total_sales = grouped_data['Продажи'].sum()
+print(total_sales)
+
+Задача 5
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+#Линейный график
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+plt.plot(x, y)
+plt.xlabel('Время (с)')
+plt.ylabel('Амплитуда')
+plt.title('Синусоида')
+plt.show()
+
+#Столбчатая диаграмма
+
+x = ['A', 'B', 'C', 'D', 'E']
+y = [10, 24, 36, 40, 15]
+plt.bar(x, y)
+plt.title('Пример столбчатой диаграммы')
+plt.xlabel('Категория')
+plt.ylabel('Значение')
+plt.show()
+
+Задача 6 
+
+Использование библиотек делает код компактнее, но, для человека не знакомого с данными библиотеками читаемость кода сильно снижается, также как и его обработка.
+
+Задача 7
+
+Специализированные библиотеки в Python позволяют эффективно реализовывать широкий спектр операций обработки данных, включая математические расчёты, работу с табличными данными, статистический анализ, машинное обучение, обработку естественного языка и изображений. Выбор библиотеки зависит от конкретной задачи и типа данных.
+
+Задача 8
+
+import numpy as np
+#Задача - Создать массив из чисел, написть код, создающий второй массив, элементы которого в два раза больше элементов первого массива
+
+# Обычный Python
+
+arr=[1,2,3,4,5]
+result=[]
+for i in range(len(arr)):
+    result.append(arr[i]+arr[i])
+print(result)
+
+# Библиотека Numpy
+arr = np.array([1, 2, 3, 4, 5])
+result = arr + arr
+print(result)
+
+#На данно примере наглядно видно, что использование библиотеки Numpy позволяет сделать код компактнее, а также упрощает его написание.
+
+
+
+
+
+
+
+
